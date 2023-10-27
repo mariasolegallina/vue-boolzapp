@@ -14,14 +14,18 @@
 <body class="debug">
     <div id="app">
         <div class="app__body container">
+
+            <!-- sidebar -->
             <div class="sidebar">
+
+                <!-- toolbar -->
                 <div class="toolbar">
                     <div class="contact">
                         <figure class="avatar">
                             <img src="./img/avatar_1.jpg" alt="" />
                         </figure>
                         <div class="contact__info">
-                            <h4 class="cantact__name"></h4>
+                            <h4 class="cantact__name">{{ userName }}</h4>
                         </div>
                     </div>
 
@@ -38,6 +42,7 @@
                     </ul>
                 </div>
 
+                <!-- box-alert & search-bar -->
                 <div class="box-alert">
                     <div class="box__icon">
                         <i class="fa-solid fa-bell-slash"></i>
@@ -57,14 +62,22 @@
                     </div>
                 </div>
 
+                <!-- contacts -->
                 <ul class="contacts">
-                    <li class="contacts__item">
+                    <li
+                        v-for="(contact, index) in contacts"
+                        :key="index"
+                        class="contacts__item"
+                        :class="{
+                            'active': index === currentIndex
+                        }"
+                    >
                         <div class="contact">
                             <figure class="avatar">
-                                <img :src="contact.avatar" alt="" />
+                                <img :src="contact.avatar"  alt="" />
                             </figure>
                             <div class="contact__info">
-                                <h4 class="cantact__name"></h4>
+                                <h4 class="cantact__name">{{ contact.name }} </h4>
                                 <p class="contact__text">Lorem ipsum dolor sit.</p>
                             </div>
                         </div>
@@ -72,7 +85,11 @@
                     </li>
                 </ul>
             </div>
+
+            <!-- content -->
             <div class="content">
+
+                <!-- toolbar -->
                 <div class="toolbar">
                     <div class="contact">
                         <figure class="avatar">
@@ -97,6 +114,7 @@
                     </ul>
                 </div>
 
+                <!-- chat -->
                 <ul class="chat">
                     <li class="message sent">Lorem ipsum dolor sit amet.</li>
                     <li class="message received">Lorem, ipsum dolor.</li>
@@ -106,6 +124,7 @@
                     </li>
                 </ul>
 
+                <!-- toolbar chat -->
                 <div class="toolbar toolbar--chat">
                     <span class="icon">
                         <i class="fa-regular fa-face-smile"></i>

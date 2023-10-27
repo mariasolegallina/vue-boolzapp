@@ -3,6 +3,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            userName: 'Pedro',
+            currentIndex: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -171,4 +173,4 @@ createApp({
     methods: {
 
     },
-}).mount("#app")
+}).mount('#app')
