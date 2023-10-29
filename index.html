@@ -65,9 +65,10 @@
                 <!-- contacts -->
                 <ul class="contacts">
                     <li
+                        class="contacts__item"
                         v-for="(contact, index) in contacts"
                         :key="index"
-                        class="contacts__item"
+                        @click="currentIndex = index"
                         :class="{
                             'active': index === currentIndex
                         }"
@@ -77,7 +78,7 @@
                                 <img :src="contact.avatar"  alt="" />
                             </figure>
                             <div class="contact__info">
-                                <h4 class="cantact__name"> {{contact.name}} </h4>
+                                <h4 class="cantact__name">{{contact.name}}</h4>
                                 <p class="contact__text">Lorem ipsum dolor sit.</p>
                             </div>
                         </div>
@@ -93,7 +94,7 @@
                 <div class="toolbar">
                     <div class="contact">
                         <figure class="avatar">
-                            <img src="./img/avatar_2.jpg" alt="" />
+                            <img :src="contacts[currentIndex].avatar" alt="" />
                         </figure>
                         <div class="contact__info">
                             <h4 class="cantact__name">{{contacts[currentIndex].name}}</h4>
