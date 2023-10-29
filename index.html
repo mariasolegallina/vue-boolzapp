@@ -77,7 +77,7 @@
                                 <img :src="contact.avatar"  alt="" />
                             </figure>
                             <div class="contact__info">
-                                <h4 class="cantact__name">{{ contact.name }} </h4>
+                                <h4 class="cantact__name"> {{contact.name}} </h4>
                                 <p class="contact__text">Lorem ipsum dolor sit.</p>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                             <img src="./img/avatar_2.jpg" alt="" />
                         </figure>
                         <div class="contact__info">
-                            <h4 class="cantact__name"></h4>
+                            <h4 class="cantact__name">{{contacts[currentIndex].name}}</h4>
                             <p>Lorem ipsum dolor sit amet consectetur.</p>
                         </div>
                     </div>
@@ -116,11 +116,12 @@
 
                 <!-- chat -->
                 <ul class="chat">
-                    <li class="message sent">Lorem ipsum dolor sit amet.</li>
-                    <li class="message received">Lorem, ipsum dolor.</li>
-                    <li class="message sent">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-                        alias deserunt in.
+                    <li
+                        v-for="(message, index) in contacts[currentIndex].messages"
+                        class="message"
+                        :class="message.status === 'sent' ? 'sent' : 'received' "
+                    >
+                    {{message.message}}
                     </li>
                 </ul>
 
