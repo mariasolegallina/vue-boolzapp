@@ -58,7 +58,12 @@
                         <span class="group-icon">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" />
+                        <input 
+                            type="text"
+                            placeholder="Cerca o inizia una nuova chat"
+                            v-model="searchBar"
+                            @input="search(searchBar)"
+                        />
                     </div>
                 </div>
 

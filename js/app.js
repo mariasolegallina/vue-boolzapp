@@ -5,7 +5,8 @@ createApp({
         return {
             userName: 'Pedro',
             currentIndex: 0,
-            newMessageObj: '',            
+            newMessageObj: '',
+            searchBar: '',            
             contacts: [
                 {
                     name: 'Michele',
@@ -203,6 +204,25 @@ createApp({
             };
             return autoReply;
         },
+
+        // ricerca
+        search(searchObj) {
+           
+            for (i=0; i < this.contacts.length; i++) {
+                
+                // console.log('ciao ' + this.contacts[i].name)
+
+                if (this.contacts[i].name == searchObj) {
+                    console.log('trovato il nome ' + this.contacts[i].name)
+                }
+                // (this.contacts[i].name === searchObj)
+            }
+            // contacts.includes(searchObj)
+            // console.log(this.contacts[0].name)
+        }
+        
+
+    
 
 
     },
