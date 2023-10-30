@@ -172,18 +172,23 @@ createApp({
         }
     },
     methods: {
-        addMessage(event) {
+        addMessage(index) {
 
-            console.log('ho premuto invio')
-            // const newMessage = {
-            //     date:'',
-            //     message: this.newMessageObj,
-            //     status:'',
+            // console.log('ho premuto invio')
+            // console.log(this.newMessageObj)
+            // console.log(this.contacts[index].messages)
+            
+            const newMessage = {
+                date:'',
+                message: this.newMessageObj,
+                status:'sent',
                 
-            // }
+            }
 
-            // this.contacts[currentIndex].messages.push(newMessage);
-            // this.newMessageObj = '';
+            this.contacts[index].messages.push(newMessage);
+            
+            // per svuotare l'input
+            this.newMessageObj = '';
         }
 
     },
