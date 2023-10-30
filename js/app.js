@@ -5,8 +5,7 @@ createApp({
         return {
             userName: 'Pedro',
             currentIndex: 0,
-            newMessageObj: '',
-            
+            newMessageObj: '',            
             contacts: [
                 {
                     name: 'Michele',
@@ -173,33 +172,38 @@ createApp({
         }
     },
     methods: {
+        
         addMessage(index) {
-
-            // console.log('ho premuto invio')
-            // console.log(this.newMessageObj)
-            // console.log(this.contacts[index].messages)
             
-            const newMessage = {
+            this.contacts[index].messages.push({
                 date:'',
                 message: this.newMessageObj,
                 status:'sent',
                 
-            }
-
-            this.contacts[index].messages.push(newMessage);
+            });
             
             // per svuotare l'input
             this.newMessageObj = '';
 
-            // risposta automatica
+            // stampa la risposta automatica dopo l'intervallo di tempo stabilito
+            const idInterval = setTimeout(() => {
+                // console.log('è passato 1 secondo');
+                this.contacts[index].messages.push(this.genReplyMessage());
+            }, 1000)
+
+        },
+
+        // genera la rispsta automatica
+        genReplyMessage() {
+
             const autoReply = {
                 date:'',
                 message: 'Prima o poi rispondo',
                 status:'received',
-            }
+            };
+            return autoReply;
+        },
 
-            this.contacts[index].messages.push(autoReply);
-        }
 
     },
 }).mount('#app')
