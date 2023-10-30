@@ -136,6 +136,8 @@
                         class="chat-input"
                         type="text"
                         placeholder="Scrivi messaggio"
+                        v-model="newMessageObj"
+                        @keyup.enter="addMessage(event)"
                     />
 
                     <span class="icon">

@@ -5,6 +5,7 @@ createApp({
         return {
             userName: 'Pedro',
             currentIndex: 0,
+            newMessageObj: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -171,6 +172,19 @@ createApp({
         }
     },
     methods: {
+        addMessage(event) {
+
+            console.log('ho premuto invio')
+            // const newMessage = {
+            //     date:'',
+            //     message: this.newMessageObj,
+            //     status:'',
+                
+            // }
+
+            // this.contacts[currentIndex].messages.push(newMessage);
+            // this.newMessageObj = '';
+        }
 
     },
 }).mount('#app')
