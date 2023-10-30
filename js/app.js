@@ -6,6 +6,7 @@ createApp({
             userName: 'Pedro',
             currentIndex: 0,
             newMessageObj: '',
+            
             contacts: [
                 {
                     name: 'Michele',
@@ -189,6 +190,15 @@ createApp({
             
             // per svuotare l'input
             this.newMessageObj = '';
+
+            // risposta automatica
+            const autoReply = {
+                date:'',
+                message: 'Prima o poi rispondo',
+                status:'received',
+            }
+
+            this.contacts[index].messages.push(autoReply);
         }
 
     },
